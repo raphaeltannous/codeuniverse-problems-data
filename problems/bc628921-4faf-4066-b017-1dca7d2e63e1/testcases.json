@@ -1,0 +1,200 @@
+[
+	{
+		"id": 1,
+		"input": "Hello, World!",
+		"expected": "hello, world!",
+		"isPublic": true
+	},
+	{
+		"id": 2,
+		"input": "I am bob the builder. :)",
+		"expected": "i am bob the builder. :)",
+		"isPublic": true
+	},
+	{
+		"id": 3,
+		"input": "Cod3univErse...",
+		"expected": "cod3universe...",
+		"isPublic": true
+	},
+	{
+		"id": 4,
+		"input": "ABC",
+		"expected": "abc",
+		"isPublic": false
+	},
+	{
+		"id": 5,
+		"input": "abc",
+		"expected": "abc",
+		"isPublic": false
+	},
+	{
+		"id": 6,
+		"input": "AbC123",
+		"expected": "abc123",
+		"isPublic": false
+	},
+	{
+		"id": 7,
+		"input": "Python3.10",
+		"expected": "python3.10",
+		"isPublic": false
+	},
+	{
+		"id": 8,
+		"input": "GOOD MORNING",
+		"expected": "good morning",
+		"isPublic": false
+	},
+	{
+		"id": 9,
+		"input": "good night",
+		"expected": "good night",
+		"isPublic": false
+	},
+	{
+		"id": 10,
+		"input": "MiXeD CaSe StrInG",
+		"expected": "mixed case string",
+		"isPublic": false
+	},
+	{
+		"id": 11,
+		"input": "12345!!!",
+		"expected": "12345!!!",
+		"isPublic": false
+	},
+	{
+		"id": 12,
+		"input": "Already lowercase",
+		"expected": "already lowercase",
+		"isPublic": false
+	},
+	{
+		"id": 13,
+		"input": "UPPERCASE\u0026lowercase_Together",
+		"expected": "uppercase\u0026lowercase_together",
+		"isPublic": false
+	},
+	{
+		"id": 14,
+		"input": "HelloWorld",
+		"expected": "helloworld",
+		"isPublic": false
+	},
+	{
+		"id": 15,
+		"input": "HELLO_world_123",
+		"expected": "hello_world_123",
+		"isPublic": false
+	},
+	{
+		"id": 16,
+		"input": "tEsTiNg",
+		"expected": "testing",
+		"isPublic": false
+	},
+	{
+		"id": 17,
+		"input": "Z",
+		"expected": "z",
+		"isPublic": false
+	},
+	{
+		"id": 18,
+		"input": "z",
+		"expected": "z",
+		"isPublic": false
+	},
+	{
+		"id": 19,
+		"input": "A1B2C3",
+		"expected": "a1b2c3",
+		"isPublic": false
+	},
+	{
+		"id": 20,
+		"input": "noUPPERCASEhere",
+		"expected": "nouppercasehere",
+		"isPublic": false
+	},
+	{
+		"id": 21,
+		"input": "ALLUPPERCASEHERE",
+		"expected": "alluppercasehere",
+		"isPublic": false
+	},
+	{
+		"id": 22,
+		"input": "lowerCASEandUPPER",
+		"expected": "lowercaseandupper",
+		"isPublic": false
+	},
+	{
+		"id": 23,
+		"input": "Edge-Case_TEST",
+		"expected": "edge-case_test",
+		"isPublic": false
+	},
+	{
+		"id": 24,
+		"input": "Email@Example.COM",
+		"expected": "email@example.com",
+		"isPublic": false
+	},
+	{
+		"id": 25,
+		"input": "SPACE TEST",
+		"expected": "space test",
+		"isPublic": false
+	},
+	{
+		"id": 26,
+		"input": "with-dashes-and_underscores",
+		"expected": "with-dashes-and_underscores",
+		"isPublic": false
+	},
+	{
+		"id": 27,
+		"input": "UPPER lower MIX",
+		"expected": "upper lower mix",
+		"isPublic": false
+	},
+	{
+		"id": 28,
+		"input": "The QUICK Brown FOX",
+		"expected": "the quick brown fox",
+		"isPublic": false
+	},
+	{
+		"id": 29,
+		"input": "URL_HTTPs",
+		"expected": "url_https",
+		"isPublic": false
+	},
+	{
+		"id": 30,
+		"input": "C0MB1N3D-123!",
+		"expected": "c0mb1n3d-123!",
+		"isPublic": false
+	},
+	{
+		"id": 31,
+		"input": "EndsWithUpperX",
+		"expected": "endswithupperx",
+		"isPublic": false
+	},
+	{
+		"id": 32,
+		"input": "MiDDleUPPER",
+		"expected": "middleupper",
+		"isPublic": false
+	},
+	{
+		"id": 33,
+		"input": "Already Lowercase Sentence",
+		"expected": "already lowercase sentence",
+		"isPublic": false
+	}
+]
