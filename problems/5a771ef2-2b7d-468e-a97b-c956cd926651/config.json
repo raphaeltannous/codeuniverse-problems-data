@@ -1,4 +1,4 @@
 {
-	"timeLimit": 5000,
+	"timeLimit": 10000,
 	"memoryLimit": 250
 }
