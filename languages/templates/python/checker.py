@@ -13,7 +13,7 @@ def run_checker(testcases, solution):
     }
 
     for testcase in testcases:
-        input = testcase["input"]
+        testcase_input = testcase["input"]
         expected = testcase["expected"]
         result = {}
 
@@ -23,7 +23,7 @@ def run_checker(testcases, solution):
 
             if got != expected:
                 result["id"] = testcase["id"]
-                result["input"] = input
+                result["input"] = testcase_input
                 result["expected"] = expected
                 result["got"] = got
 
