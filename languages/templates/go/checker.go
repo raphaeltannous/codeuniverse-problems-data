@@ -1,11 +1,13 @@
 package main
 
 func runChecker(testcases []*Testcase) *RunResult {
-	runResult := new(RunResult)
+	runResult := &RunResult{
+		IsPassed: true,
+	}
 
 	for _, testcase := range testcases {
-		// input
-		// expected
+		input := testcase.Input
+		expected := testcase.Expected
 		// got
 
 		if expected != got {
