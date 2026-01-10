@@ -2,9 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"os"
 	"time"
+
+	_ "time/tzdata"
 )
 
 type RunResult struct {
