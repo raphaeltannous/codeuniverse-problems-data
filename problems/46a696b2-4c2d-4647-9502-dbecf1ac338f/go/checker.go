@@ -1,6 +1,9 @@
 package main
 
-import "slices"
+import (
+	"log"
+	"slices"
+)
 
 func runChecker(testcases []*Testcase) *RunResult {
 	runResult := &RunResult{
@@ -10,7 +13,12 @@ func runChecker(testcases []*Testcase) *RunResult {
 	for _, testcase := range testcases {
 		input := sliceToLinkedList(testcase.Input)
 		expected := testcase.Expected
-		got := linkedListToSlice(addOne(input))
+		gotValue, stdout, err := captureStdout(addOne, input)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		got := linkedListToSlice(gotValue[0].Interface().(*Node))
 
 		if !slices.Equal(expected, got) {
 			runResult.FailedTestcases = append(runResult.FailedTestcases, &FailedTestcase{
@@ -18,6 +26,7 @@ func runChecker(testcases []*Testcase) *RunResult {
 				Input:    testcase.Input,
 				Expected: testcase.Expected,
 				Got:      got,
+				StdOut:   stdout,
 			})
 			runResult.IsPassed = false
 		}

@@ -1,5 +1,7 @@
 package main
 
+import "log"
+
 func runChecker(testcases []*Testcase) *RunResult {
 	runResult := &RunResult{
 		IsPassed: true,
@@ -8,7 +10,12 @@ func runChecker(testcases []*Testcase) *RunResult {
 	for _, testcase := range testcases {
 		input := testcase.Input
 		expected := testcase.Expected
-		// got
+		gotValue, stdout, err := captureStdout(fn, inputs)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		got := gotValue[0].
 
 		if expected != got {
 
@@ -17,6 +24,7 @@ func runChecker(testcases []*Testcase) *RunResult {
 				Input:    testcase.Input,
 				Expected: testcase.Expected,
 				Got:      got,
+				StdOut:   stdout,
 			})
 			runResult.IsPassed = false
 		}

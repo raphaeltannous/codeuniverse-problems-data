@@ -1,3 +1,6 @@
+import io
+from contextlib import redirect_stdout
+
 def run_checker(testcases, solution):
     # results:
     # - exception
@@ -7,24 +10,28 @@ def run_checker(testcases, solution):
     #      - input
     #      - expected
     #      - got
+    #      - stdOut
     results = {
         "isPassed": True,
         "failedTestcases": [],
     }
 
     for testcase in testcases:
-        input = testcase["input"]
+        testcase_input = testcase["input"]
         expected = testcase["expected"]
         result = {}
 
         try:
-            got = solution.toLower(input)
+            stdout = io.StringIO()
+            with redirect_stdout(stdout):
+                got = solution.toLower(testcase_input)
 
             if got != expected:
                 result["id"] = testcase["id"]
-                result["input"] = input
+                result["input"] = testcase_input
                 result["expected"] = expected
                 result["got"] = got
+                result["stdout"] = stdout.getvalue()
 
                 results["isPassed"] = False
                 results["failedTestcases"].append(result)

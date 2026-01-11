@@ -1,10 +1,13 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
-	"fmt"
+	"errors"
+	"io"
 	"log"
 	"os"
+	"reflect"
 	"time"
 
 	_ "time/tzdata"
@@ -27,6 +30,7 @@ type FailedTestcase struct {
 	Input    any `json:"input"`
 	Expected any `json:"expected"`
 	Got      any `json:"got"`
+	StdOut   any `json:"stdOut"`
 }
 
 func main() {
@@ -48,4 +52,31 @@ func main() {
 	if err := encoder.Encode(results); err != nil {
 		log.Fatal("failed to write resultsFile.")
 	}
+}
+
+func captureStdout(fn any, args ...any) ([]reflect.Value, string, error) {
+	funcValue := reflect.ValueOf(fn)
+
+	if funcValue.Kind() != reflect.Func {
+		return nil, "", errors.New("Not a function")
+	}
+
+	old := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+
+	arguments := make([]reflect.Value, len(args))
+	for i, arg := range args {
+		arguments[i] = reflect.ValueOf(arg)
+	}
+
+	returns := funcValue.Call(arguments)
+
+	w.Close()
+	os.Stdout = old
+
+	var buf bytes.Buffer
+	io.Copy(&buf, r)
+
+	return returns, buf.String(), nil
 }
