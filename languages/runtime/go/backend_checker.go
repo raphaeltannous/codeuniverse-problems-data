@@ -1,13 +1,13 @@
 package main
 
 import (
-	"bytes"
 	"encoding/json"
 	"errors"
 	"io"
 	"log"
 	"os"
 	"reflect"
+	"strings"
 	"time"
 
 	_ "time/tzdata"
@@ -75,7 +75,7 @@ func captureStdout(fn any, args ...any) ([]reflect.Value, string, error) {
 	w.Close()
 	os.Stdout = old
 
-	var buf bytes.Buffer
+	var buf strings.Builder
 	io.Copy(&buf, r)
 
 	return returns, buf.String(), nil
