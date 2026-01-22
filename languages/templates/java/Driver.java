@@ -1,0 +1,30 @@
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.List;
+
+public class Driver {
+  // Update:
+  // Input type accordingly
+  // Expected type accordingly
+  public static class Testcase {
+    public int id;
+    public Object input;
+    public Object expected;
+    public boolean isPublic;
+  }
+
+  public static List<Testcase> loadTestcases(String filename) {
+    try (FileReader reader = new FileReader(filename)) {
+      Gson gson = new Gson();
+      Type testcaseListType = new TypeToken<List<Testcase>>(){}.getType();
+      return gson.fromJson(reader, testcaseListType);
+    } catch (IOException e) {
+      System.err.println("Failed to open testcases file.");
+      System.exit(1);
+      return null;
+    }
+  }
+}
