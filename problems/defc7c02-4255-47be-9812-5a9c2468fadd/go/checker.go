@@ -10,12 +10,12 @@ func runChecker(testcases []*Testcase) *RunResult {
 	for _, testcase := range testcases {
 		input := testcase.Input
 		expected := testcase.Expected
-		gotValue, stdout, err := captureStdout(fn, inputs)
+		gotValue, stdout, err := captureStdout(integerToRoman, input)
 		if err != nil {
 			log.Fatal(err)
 		}
 
-		got := gotValue[0].
+		got := gotValue[0].String()
 
 		if expected != got {
 

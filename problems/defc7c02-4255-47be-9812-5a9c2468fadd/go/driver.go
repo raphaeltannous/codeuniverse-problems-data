@@ -6,13 +6,10 @@ import (
 	"os"
 )
 
-// Update:
-// Input any accordingly
-// Expected any accordingly
 type Testcase struct {
 	Id       int  `json:"id"`
-	Input    any  `json:"input"`
-	Expected any  `json:"expected"`
+	Input    int  `json:"input"`
+	Expected string  `json:"expected"`
 	IsPublic bool `json:"isPublic"`
 }
 
