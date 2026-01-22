@@ -1,0 +1,104 @@
+[
+	{
+		"id": 1,
+		"input": "()",
+		"expected": true,
+		"isPublic": true
+	},
+	{
+		"id": 2,
+		"input": "()[]{}",
+		"expected": true,
+		"isPublic": true
+	},
+	{
+		"id": 3,
+		"input": "(]",
+		"expected": false,
+		"isPublic": true
+	},
+	{
+		"id": 4,
+		"input": "([])",
+		"expected": true,
+		"isPublic": false
+	},
+	{
+		"id": 5,
+		"input": "([)]",
+		"expected": false,
+		"isPublic": false
+	},
+	{
+		"id": 6,
+		"input": "({}[])",
+		"expected": true,
+		"isPublic": false
+	},
+	{
+		"id": 7,
+		"input": ")",
+		"expected": false,
+		"isPublic": false
+	},
+	{
+		"id": 8,
+		"input": "[",
+		"expected": false,
+		"isPublic": false
+	},
+	{
+		"id": 9,
+		"input": "(((((((())))))))",
+		"expected": true,
+		"isPublic": false
+	},
+	{
+		"id": 10,
+		"input": "(([]){})",
+		"expected": true,
+		"isPublic": false
+	},
+	{
+		"id": 11,
+		"input": "([[[[[]]]]])",
+		"expected": true,
+		"isPublic": false
+	},
+	{
+		"id": 12,
+		"input": "([{}({})])",
+		"expected": true,
+		"isPublic": false
+	},
+	{
+		"id": 13,
+		"input": "((({{{[[[]]]}}})))",
+		"expected": true,
+		"isPublic": false
+	},
+	{
+		"id": 14,
+		"input": ")(",
+		"expected": false,
+		"isPublic": false
+	},
+	{
+		"id": 15,
+		"input": "(((",
+		"expected": false,
+		"isPublic": false
+	},
+	{
+		"id": 16,
+		"input": ")))",
+		"expected": false,
+		"isPublic": false
+	},
+	{
+		"id": 17,
+		"input": "([)]({})",
+		"expected": false,
+		"isPublic": false
+	}
+]
