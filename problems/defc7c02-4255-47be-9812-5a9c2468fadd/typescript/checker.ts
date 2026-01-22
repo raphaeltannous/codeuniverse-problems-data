@@ -1,14 +1,15 @@
-const { FailedTestcase, RunResult, captureStdout } = require('./backend_checker.js');
-const { funcName } = require('./solution.js');
+import { FailedTestcase, RunResult, captureStdout } from './backend_checker';
+import { Testcase } from './driver';
+import { integerToRoman } from './solution';
 
-function runChecker(testcases) {
+export function runChecker(testcases: Testcase[]): RunResult {
     const runResult = new RunResult();
     
     for (const testcase of testcases) {
         const input = testcase.input;
         const expected = testcase.expected;
         
-        const capture = captureStdout(() => funcName(input));
+        const capture = captureStdout(() => integerToRoman(input));
         const got = capture.result;
         
         if (expected !== got) {
@@ -27,5 +28,3 @@ function runChecker(testcases) {
     
     return runResult;
 }
-
-module.exports = { runChecker };

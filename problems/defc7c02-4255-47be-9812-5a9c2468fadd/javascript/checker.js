@@ -1,5 +1,5 @@
 const { FailedTestcase, RunResult, captureStdout } = require('./backend_checker.js');
-const { funcName } = require('./solution.js');
+const { integerToRoman } = require('./solution.js');
 
 function runChecker(testcases) {
     const runResult = new RunResult();
@@ -8,7 +8,7 @@ function runChecker(testcases) {
         const input = testcase.input;
         const expected = testcase.expected;
         
-        const capture = captureStdout(() => funcName(input));
+        const capture = captureStdout(() => integerToRoman(input));
         const got = capture.result;
         
         if (expected !== got) {
