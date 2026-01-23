@@ -6,15 +6,14 @@ public class MainChecker {
     Main.Solution solution = new Main.Solution();
 
     for (Driver.Testcase testcase : testcases) {
-      Object input = testcase.input;
-      Object expected = testcase.expected;
+      String input = testcase.input;
+      int expected = testcase.expected;
       
       BackendChecker.StdoutCapture capture = BackendChecker.captureStdout(() -> 
-        solution.funcName(input)
+        solution.longestSubstringLength(input)
       );
       
-      // int got = (int) capture.result;
-      Object got = capture.result;
+      int got = (int) capture.result;
 
       if (expected != got) {
         BackendChecker.FailedTestcase failedTestcase = new BackendChecker.FailedTestcase();
