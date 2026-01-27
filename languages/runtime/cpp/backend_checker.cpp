@@ -1,14 +1,6 @@
 #ifndef BACKEND_CHECKER_CPP
 #define BACKEND_CHECKER_CPP
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <chrono>
-#include <functional>
-#include "json.hpp"
-
 using json = nlohmann::json;
 
 namespace BackendChecker {
@@ -65,11 +57,11 @@ namespace BackendChecker {
     auto captureStdout(Func fn) -> StdoutCapture<decltype(fn())> {
         std::stringstream buffer;
         std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
-        
+
         auto result = fn();
-        
+
         std::cout.rdbuf(old);
-        
+
         return {result, buffer.str()};
     }
 
